@@ -1,0 +1,42 @@
+extends ../shared/template
+block content
+    h2 #{publicUser.email}' Account 
+    .row
+      .col-xs-3
+          .info Username: 
+          .info Phone Number:
+          .info Facebook:
+          .info Twitter:
+          .info Tagline:
+      .col-xs-3
+          .info  #{publicUser.email}
+          .info  #{publicUser.phone}
+          .info  #{publicUser.facebook}
+          .info  #{publicUser.twitter}
+          .info  "#{publicUser.tagline}"
+      .col-xs-6.header Profile Photo
+        .photo.thumbnail
+          img(src='#{publicUser.photo}')
+    .row
+          .col-xs-4
+          .col-xs-4
+            form(role='form' method='post'  action='/message/#{publicUser._id}')
+              .radio
+                label
+                  input(type='radio' name='mtype' value='text' checked=true)  
+                  span Text
+              .radio
+                label
+                  input(type='radio' name='mtype' value='email' checked=false)  
+                  span Email 
+              .radio
+                label
+                  input(type='radio' name='mtype' value='internal' checked=false)  
+                  span Internal
+              .form-group
+                label(for='message')
+                textarea.form-control#message(name='message')
+              button.btn.btn-success(type='submit') Send Message
+          .col-xs-4
+
+block scripts

@@ -8,8 +8,9 @@ block content
         th Facebook
       each user in users 
         tr
-          td: a(href='/user/#{user._id}')= user.email
+          td: a(href='/user/#{user.email}')= user.email
           td= user.twitter
           td= user.facebook
+
 
 block scripts

@@ -61,3 +61,21 @@ exports.users = function(req, res){
   });
 };
 
+exports.viewProfile = function(req, res){
+  User.viewProfile(req.params.username, function(err, user){
+    if(user.isVisible){
+      res.render('users/public', {publicUser: user});
+    }else {
+      res.redirect('/');
+    }
+  });
+};
+
+exports.message = function(req, res){
+  User.findById(req.params.userId, function(err, receiver){
+    res.locals.user.send(receiver, req.body, function(){
+      res.redirect('/user/' + receiver.email);
+    });
+  });
+};
+

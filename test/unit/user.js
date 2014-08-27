@@ -44,7 +44,16 @@ describe('User', function(){
   describe('.all', function(){
     it('should display all public users', function(){
       User.all(function(err, users){
-        expect(users).to.have.length(2);
+        expect(users).to.have.length(3);
+      });
+    });
+  });
+
+  describe('.viewProfile', function(){
+    it('should should find a user based on username and display it', function(done){
+      User.viewProfile('bob@aol.com', function(err, user){
+        expect(user.email).to.equal('bob@aol.com');
+        done();
       });
     });
   });

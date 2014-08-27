@@ -45,7 +45,8 @@
     "express-session": "~1.7.6",
     "connect-redis": "~2.0.0",
     "bcrypt": "~0.8.0",
-    "chalk": "~0.5.1"
+    "chalk": "~0.5.1",
+    "twilio": "~1.7.0"
   },
   "devDependencies": {
     "blanket": "~1.1.6",

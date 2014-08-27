@@ -2,16 +2,20 @@
   "_id" : {"$oid":"000000000000000000000001"},
   "email" : "bob@aol.com",
   "password" : "$2a$10$XR.IQktUUujLBxed70GQn.jWY1wZ9ThM0Tar9wTqzkI4Uk1uP2Or2",
-  "isVisible": true,
   "twitter" : "@hellobobby",
-  "facebook" : "bobbypin"
+  "facebook" : "bobbypin",
+  "isVisible" : true,
+  "photo" : "http://2.bp.blogspot.com/_ivWX1b9wiEw/TBpEkGkdE8I/AAAAAAAAA6A/y5F5bRj57OU/s1600/bob-marley.jpg"
+
 }
 
 {
   "_id" : {"$oid":"000000000000000000000002"},
   "email" : "sue@aol.com",
   "password" : "$2a$10$sjPx9TkrEASeXzH6uuDCDO.n1Sj/H2A/bu/9hBFfm5fm3Z4LzrEPa",
-  "isVisible": false
+  "isVisible": false,
+  "photo" : ""
+
 }
 
 {
@@ -20,14 +24,19 @@
   "password" : "$2a$10$sjPx9TkrEASeXzH6uuDCDO.n1Sj/H2A/bu/9hBFfm5fm3Z4LzrEPa",
   "isVisible": true ,
   "twitter" : "@beettttyyyy",
-  "facebook" : "betsyblooper"
-
+  "facebook" : "betsyblooper",
+  "photo" : "http://www.bettyrules.com/BETTY_Logo.jpg"
 
 }
 
 {
   "_id" : {"$oid":"000000000000000000000004"},
-  "email" : "ann@aol.com",
+  "email" : "genie@aol.com",
   "password" : "$2a$10$sjPx9TkrEASeXzH6uuDCDO.n1Sj/H2A/bu/9hBFfm5fm3Z4LzrEPa",
-  "isVisible": false
+  "isVisible": true,
+  "twitter" : "@genie",
+  "phone" : "1-800-GENIE-40",
+  "facebook" : "genie",
+  "tagline" : "I'm the genie offff the laaaammmpppp!!!",
+  "photo" : "http://img1.wikia.nocookie.net/__cb20110117180421/poohadventures/images/2/28/Nov113.gif"
 }
