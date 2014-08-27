@@ -1,5 +1,5 @@
 {
-  "name": "Facebook Clone",
+  "name": "fb",
   "version": "0.0.0",
   "description": "A Facebook clone written in Node.JS",
   "main": "app/index.js",
