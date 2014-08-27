@@ -22,14 +22,21 @@ module.exports = function(app, express){
   app.use(security.authenticate);
   app.use(debug.info);
 
+
+  //guest users
   app.get('/', home.index);
   app.get('/register', users.new);
   app.post('/register', users.create);
   app.get('/login', users.login);
   app.post('/login', users.authenticate);
 
+
+  //authenticated users
   app.use(security.bounce);
   app.delete('/logout', users.logout);
+  app.get('/profile/edit', users.edit);
+  app.put('/profile/edit', users.editProfile);
+  app.get('/profile', users.profile);
 
   console.log('Express: Routes Loaded');
 };

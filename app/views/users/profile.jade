@@ -1,0 +1,20 @@
+extends ../shared/template
+block content
+    h2 Profile Page
+    .row
+      .col-xs-3
+          .info Username: 
+          .info Phone Number:
+          .info Facebook:
+          .info Twitter:
+          .info Tagline:
+      .col-xs-3
+          .info  #{user.email}
+          .info  #{user.phone}
+          .info  #{user.facebook}
+          .info  #{user.twitter}
+          .info  "#{user.tagline}"
+      .col-xs-6.header Profile Photo
+        .photo(style='background-image: url(#{user.photo})')
+
+block scripts

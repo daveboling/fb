@@ -20,7 +20,7 @@ describe('users', function(){
       request(app)
       .post('/login')
       .send('email=bob@aol.com')
-      .send('password=1234')
+      .send('password=1234') //sue password: abcd
       .end(function(err, res){
         cookie = res.headers['set-cookie'][0];
         done();
@@ -28,16 +28,48 @@ describe('users', function(){
     });
   });
 
-  describe('get /register', function(){
-    it('should show the register page', function(done){
+  describe('get /profile/edit', function(){
+    it('should show the edit profile page', function(done){
       request(app)
-      .get('/register')
+      .get('/profile/edit')
+      .set('cookie', cookie)
       .end(function(err, res){
         expect(res.status).to.equal(200);
-        expect(res.text).to.include('Register');
+        expect(res.text).to.include('bob@aol.com');
+        expect(res.text).to.include('Email');
+        expect(res.text).to.include('Phone');
+        expect(res.text).to.include('public');
         done();
       });
     });
   });
+
+  describe('put /profile/edit', function(){
+    it('should edit the profile', function(done){
+      request(app)
+      .put('/profile/edit')
+      .send('method=put&visible=public&email=bob%40gmail.com&photo=test&tagline=test&facebook=test&twitter=test&phone=test')
+      .set('cookie', cookie)
+      .end(function(err, res){
+        expect(res.status).to.equal(302);
+        expect(res.headers.location).to.equal('/profile');
+        done();
+      });
+    });
+  });
+
+  describe('get /profile', function(){
+    it('should go to the profile page', function(done){
+      request(app)
+      .get('/profile')
+      .set('cookie', cookie)
+      .end(function(err, res){
+        expect(res.status).to.equal(200);
+        done();
+      });
+    });
+  });
+
+
 });
 
