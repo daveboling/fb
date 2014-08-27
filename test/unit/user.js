@@ -31,9 +31,9 @@ describe('User', function(){
   });
 
   describe('#save', function(){
-    it('should save a users profile changes to the database', function(done){
-      var user = new User({ email: 'face@face.com', password: 'face', _id: Mongo.ObjectID('000000000000000000000010')}); 
-      var reqBody = {facebook: 'face', twitter: '@face', phone: '555-5555', visible: 'public'};
+    it('should save a users profile changes to the database',function(done){
+      var user = new User({email:'face@face.com',password:'face',_id:Mongo.ObjectID('000000000000000000000010')}),
+      reqBody = {facebook:'face',twitter:'@face',phone:'555-5555',visible:'public'};
       user.save(reqBody, function(err, user){
         expect(user.facebook).to.equal('face');
         done();
