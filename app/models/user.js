@@ -35,6 +35,10 @@ User.authenticate = function(o, cb){
   });
 };
 
+User.all = function(cb){
+  User.collection.find({isVisible: true}).toArray(cb);
+};
+
 User.prototype.save = function(o, cb){
   var properties = Object.keys(o),
       self       = this;
@@ -51,6 +55,7 @@ User.prototype.save = function(o, cb){
 
   User.collection.save(this, cb);
 };
+
 
 module.exports = User;
 

@@ -37,6 +37,7 @@ module.exports = function(app, express){
   app.get('/profile/edit', users.edit);
   app.put('/profile/edit', users.editProfile);
   app.get('/profile', users.profile);
+  app.get('/users', users.users);
 
   console.log('Express: Routes Loaded');
 };

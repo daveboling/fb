@@ -2,7 +2,7 @@
 
 'use strict';
 
-process.env.DB   = 'template-test';
+process.env.DB   = 'fb';
 
 var expect  = require('chai').expect,
     cp      = require('child_process'),
@@ -70,6 +70,17 @@ describe('users', function(){
     });
   });
 
+  describe('get /users', function(){
+    it('should get all public users', function(done){
+      request(app)
+      .get('/users')
+      .set('cookie', cookie)
+      .end(function(err, res){
+        expect(res.status).to.equal(200);
+        done();
+      });
+    });
+  });
 
 });
 

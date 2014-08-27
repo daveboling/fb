@@ -1,0 +1,15 @@
+extends ../shared/template
+block content
+    h2 Public Users
+    table.table
+      tr
+        th Email
+        th Twitter
+        th Facebook
+      each user in users 
+        tr
+          td: a(href='/user/#{user._id}')= user.email
+          td= user.twitter
+          td= user.facebook
+
+block scripts

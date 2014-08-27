@@ -55,3 +55,9 @@ exports.profile = function(req, res){
   res.render('users/profile');
 };
 
+exports.users = function(req, res){
+  User.all(function(err, users){
+    res.render('users/users', {users: users});
+  });
+};
+
