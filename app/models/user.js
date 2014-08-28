@@ -90,12 +90,7 @@ function sendEmail(to, from, body, cb){
       domain = process.env.GUN_DOMAIN,
      mailgun = new Mailgun({apiKey: apikey, domain: domain}),
 
-  data = {
-    from: from,
-    to: to,
-    subject: 'Message From:' + from,
-    html: 'Hello, This is not a plain-text email, I wanted to test some spicy Mailgun sauce in NodeJS!'
-  };
+  data = {from: from,to: to, subject: 'Message From:' + from, html: body};
 
   mailgun.messages().send(data, cb);
 
