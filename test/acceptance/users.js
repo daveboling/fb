@@ -104,12 +104,26 @@ describe('users', function(){
     });
   });
 
-  describe('get /message/000000000000000000000002', function(){
-    it('should send an e-mail to a user based on ID', function(done){
+  describe('get /message/3', function(){
+    it('should send an text to a user based on ID', function(done){
       request(app)
       .post('/message/000000000000000000000002')
       .set('cookie', cookie)
       .send('mtype=text&message=hey, hey, hey')
+      .end(function(err, res){
+        expect(res.status).to.equal(302);
+        expect(res.header.location).to.equal('/user/sue@aol.com');
+        done();
+      });
+    });
+  });
+
+  describe('get /message/3', function(){
+    it('should send an email to a user based on ID', function(done){
+      request(app)
+      .post('/message/000000000000000000000002')
+      .set('cookie', cookie)
+      .send('mtype=email&message=hey, hey, hey')
       .end(function(err, res){
         expect(res.status).to.equal(302);
         expect(res.header.location).to.equal('/user/sue@aol.com');

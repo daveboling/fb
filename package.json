@@ -46,7 +46,8 @@
     "connect-redis": "~2.0.0",
     "bcrypt": "~0.8.0",
     "chalk": "~0.5.1",
-    "twilio": "~1.7.0"
+    "twilio": "~1.7.0",
+    "mailgun-js": "~0.5.4"
   },
   "devDependencies": {
     "blanket": "~1.1.6",

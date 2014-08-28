@@ -1,8 +1,9 @@
 'use strict';
 
-var bcrypt = require('bcrypt'),
-    Mongo  = require('mongodb'),
-    _      = require('lodash');
+var bcrypt  = require('bcrypt'),
+    Mongo   = require('mongodb'),
+    _       = require('lodash'),
+    Mailgun = require('mailgun-js');
 
 function User(){
 }
@@ -66,6 +67,7 @@ User.prototype.send = function(receiver, obj, cb){
       sendText(receiver.phone, obj.message, cb);
       break;
     case 'email':
+      sendEmail(receiver.email, this.email, obj.message, cb);
       break;
     case 'internal':
   }
@@ -81,6 +83,22 @@ function sendText(to, body, cb){
       client     = require('twilio')(accountSid, authToken);
 
   client.messages.create({to:to, from:from, body:body}, cb);
+}
+
+function sendEmail(to, from, body, cb){
+  var apikey = process.env.GUNKEY,
+      domain = process.env.GUN_DOMAIN,
+     mailgun = new Mailgun({apiKey: apikey, domain: domain}),
+
+  data = {
+    from: from,
+    to: to,
+    subject: 'Message From:' + from,
+    html: 'Hello, This is not a plain-text email, I wanted to test some spicy Mailgun sauce in NodeJS!'
+  };
+
+  mailgun.messages().send(data, cb);
+
 }
 
 
