@@ -7,3 +7,8 @@
 
 ##This will return encrypted keys that need to be added to .travis.yml
 ##See the .travis.yml file in this project to see an example 
+
+Adding .keys and .key-test
+--------------------------
+##.bashrc format:  source  ~/.keys
+## Will need to use this format to reload the .keys-test 
