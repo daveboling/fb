@@ -73,12 +73,15 @@ User.prototype.send = function(receiver, obj, cb){
 };
 
 function sendText(to, body, cb){
-  var accountSid = 'AC817c8bc68125c03aff270c3d5ba000c7',
-  authToken = process.env.TWILIO,
-  client = require('twilio')(accountSid, authToken);
-  client.messages.create({to: to, from: '+18654072269', body: body}, cb);
-}
+  if(!to){return cb();}
 
+  var accountSid = process.env.TWSID,
+      authToken  = process.env.TWTOK,
+      from       = process.env.FROM,
+      client     = require('twilio')(accountSid, authToken);
+
+  client.messages.create({to:to, from:from, body:body}, cb);
+}
 
 
 

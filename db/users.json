@@ -5,6 +5,7 @@
   "twitter" : "@hellobobby",
   "facebook" : "bobbypin",
   "isVisible" : true,
+  "phone" : "+15005550006",
   "photo" : "http://2.bp.blogspot.com/_ivWX1b9wiEw/TBpEkGkdE8I/AAAAAAAAA6A/y5F5bRj57OU/s1600/bob-marley.jpg"
 
 }
@@ -14,6 +15,7 @@
   "email" : "sue@aol.com",
   "password" : "$2a$10$sjPx9TkrEASeXzH6uuDCDO.n1Sj/H2A/bu/9hBFfm5fm3Z4LzrEPa",
   "isVisible": false,
+  "phone" : "+15005550006",
   "photo" : ""
 
 }
