@@ -79,3 +79,9 @@ exports.message = function(req, res){
   });
 };
 
+exports.messages = function(req, res){
+  Message.find({userId: req.locals.user._id}, function(err, messages){
+    res.render('users/messages', {messages: messages});
+  });
+};
+

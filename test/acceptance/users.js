@@ -131,5 +131,18 @@ describe('users', function(){
       });
     });
   });
+
+  describe('get /messages', function(){
+    it('should display all incoming messsages', function(done){
+      request(app)
+      .get('/message')
+      .set('cookie', cookie)
+      .end(function(err, res){
+        expect(res.status).to.equal(200);
+        done();
+      });
+    });
+  });
+
 });
 
