@@ -19,10 +19,13 @@ Message.find = function(userId, cb){
 Message.read = function(query, cb){
   var id = Mongo.ObjectID(query);
   Message.collection.findOne({_id: id}, function(err, message){
-    message.isRead = true;
-    Message.collection.save(message, function(){
-      cb(message);
-    });
+    if(message.isRead){ cb(message); } //I just saved at least one polar bear here.
+    else { //but then I killed two. :(
+      message.isRead = true;
+      Message.collection.save(message, function(){
+        cb(message);
+      });
+    }
   });
 };
 

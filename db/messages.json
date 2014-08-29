@@ -1,0 +1,17 @@
+{
+    "_id" : {"$oid" : "53ffc8a77eedeb1a14f69131"},
+    "to" : {"$oid" :"000000000000000000000001"},
+    "from" : "sue@aol.com",
+    "body" : "Yo Bob, what's up with you?.",
+    "date" : {"$date" : 1409270400000},
+    "isRead" : false
+}
+
+{
+    "_id" : {"$oid" : "53ffc92c7483f5be14b7f80c"},
+    "to" : {"$oid" :"000000000000000000000002"},
+    "from" : "bob@aol.com",
+    "body" : "HEY HEY HEY! WHAT'S UP DAWG. I SEE YOU LIKE MUDKIPS. COOL.",
+    "date" : {"$date" : 1409270400099},
+    "isRead" : false
+}

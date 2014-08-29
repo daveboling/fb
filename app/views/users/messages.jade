@@ -1,6 +1,7 @@
 extends ../shared/template
 block content 
     h2 #{user.email}'s Messages
+    #unread #{ (unread) ? 'You have ' + unread + ' unread message(s)' : 'You have no unread messages.'}
     table.table
       tr
         th From
@@ -10,5 +11,5 @@ block content
             tr(style='font-weight: #{ (message.isRead) ? "normal" : "bold"};')
               td= message.from
               td= message.date
-              td: a(href='/message/view')= message.body.substring(0, 10) + '....'
+              td: a(href='/message/#{message._id}/view')= message.body.substring(0, 10) + '....'
 
