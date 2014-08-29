@@ -99,11 +99,9 @@ function sendEmail(to, from, body, cb){
 }
 
 function sendInternal(to, from, body, cb){
-  var message = new Message({
-    to: to,
-    from: from,
-    body: body
-  });
+  var m = {to: to, from: from, body: body},
+  message = new Message(m);
+
 
   Message.collection.save(message, cb);
 }

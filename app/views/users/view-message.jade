@@ -1,8 +1,9 @@
 extends ../shared/template
 block content
-    .row
-      .col-xs-12= messsage.from
-    .row
-      .col-xs-12= message.date
-    .row
-      .col-xs-12= message.body
+    table.table
+        tr
+          td= message.from
+        tr
+          td= message.date
+        tr
+          td= message.body

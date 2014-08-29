@@ -3,6 +3,9 @@
 var Mongo = require('mongodb');
 
 function Message(o){
+  this.to = o.to;
+  this.from = o.from;
+  this.body = o.body;
   this.date   = new Date();
   this.isRead = false;
 }

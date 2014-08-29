@@ -41,7 +41,7 @@ module.exports = function(app, express){
   app.get('/user/:username', users.viewProfile);
   app.post('/message/:userId', users.message);
   app.get('/messages', users.displayMessages);
-  app.get('/message/view', users.readMessage);
+  app.get('/message/:messageId/view', users.readMessage);
 
   console.log('Express: Routes Loaded');
 };
