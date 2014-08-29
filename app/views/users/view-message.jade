@@ -1,9 +1,15 @@
 extends ../shared/template
 block content
-    table.table
-        tr
-          td= message.from
-        tr
-          td= message.date
-        tr
-          td= message.body
+  h2 View Message
+  .row
+    .col-xs-3
+    .col-xs-6
+      table.table#message
+          tr
+            td Message From: #{message.from}
+          tr
+            td Date: #{moment(message.date).format('MM/DD/YYYY')}
+            td Time: #{moment(message.date).fromNow()}
+          tr
+            td #{message.body}
+    .col-xs-3

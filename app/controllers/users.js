@@ -1,7 +1,8 @@
 'use strict';
 
 var User = require('../models/user'),
-    Message = require('../models/message');
+    Message = require('../models/message'),
+    moment = require('moment');
 
 exports.new = function(req, res){
   res.render('users/new');
@@ -83,17 +84,18 @@ exports.message = function(req, res){
 
 //Display all messages to given user
 exports.displayMessages = function(req, res){
-  Message.find(res.locals.user._id, function(err, messages){
+  var sort = req.query.sort || -1; //default sort
+  Message.find(res.locals.user._id, sort, function(err, messages){
     var unread = 0;
     messages.forEach(function(m){ unread = (m.isRead) ? unread : unread + 1; });
-    res.render('users/messages', {messages: messages, unread: unread});
+    res.render('users/messages', {messages: messages, sort: sort, unread: unread, moment: moment});
   });
 };
 
 //Display a single message
 exports.readMessage = function(req, res){
   Message.read(req.params.messageId, function(message){
-    res.render('users/view-message', {message: message});
+    res.render('users/view-message', {message: message, moment: moment});
   });
 };
 

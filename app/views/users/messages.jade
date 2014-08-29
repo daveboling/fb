@@ -5,11 +5,13 @@ block content
     table.table
       tr
         th From
-        th Date
+        th: a(href="/messages?sort=#{(sort === 1) ? 1 : sort * -1 }") Date
+        th Time
         th Message
           each message in messages
-            tr(style='font-weight: #{ (message.isRead) ? "normal" : "bold"};')
+            tr(style='background-color: #{ (message.isRead) ? "rgba(21, 21, 21, 0.3)" : "rgba(211, 100, 100, 0.6)"};')
               td= message.from
-              td= message.date
+              td= moment(message.date).format('MM/DD/YYYY')
+              td= moment(message.date).fromNow()
               td: a(href='/message/#{message._id}/view')= message.body.substring(0, 10) + '....'
 

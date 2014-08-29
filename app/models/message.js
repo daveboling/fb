@@ -14,9 +14,9 @@ Object.defineProperty(Message, 'collection', {
   get: function(){return global.mongodb.collection('messages');}
 });
 
-Message.find = function(userId, cb){
+Message.find = function(userId, sort, cb){
   var id = Mongo.ObjectID(userId);
-  Message.collection.find({to: id}).toArray(cb);
+  Message.collection.find({to: id}).sort({date: parseInt(sort)}).toArray(cb);
 };
 
 Message.read = function(query, cb){
