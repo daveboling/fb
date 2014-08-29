@@ -93,7 +93,6 @@ exports.displayMessages = function(req, res){
 //Display a single message
 exports.readMessage = function(req, res){
   Message.read(req.params.messageId, function(message){
-    console.log(message);
     res.render('users/view-message', {message: message});
   });
 };

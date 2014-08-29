@@ -158,5 +158,17 @@ describe('users', function(){
     });
   });
 
+  describe('get /messages/:messageId/view', function(){
+    it('should display a single message from a given users', function(done){
+      request(app)
+      .get('/message/53ffc8a77eedeb1a14f69131/view')
+      .set('cookie', cookie)
+      .end(function(err, res){
+        expect(res.status).to.equal(200);
+        done();
+      });
+    });
+  });
+
 });
 
