@@ -1,3 +1,14 @@
 extends ../shared/template
 block content 
     h2 #{user.email}'s Messages
+    table.table
+      tr
+        th From
+        th Date
+        th Message
+          each message in messages
+            tr(style='font-weight: #{ (message.isRead) ? "normal" : "bold"};')
+              td= message.from
+              td= message.date
+              td: a(href='/message/view')= message.body.substring(0, 10) + '....'
+

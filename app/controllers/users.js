@@ -83,7 +83,7 @@ exports.message = function(req, res){
 
 //Display all messages to given user
 exports.displayMessages = function(req, res){
-  Message.find(req.locals.user._id, function(err, messages){
+  Message.find(res.locals.user._id, function(err, messages){
     res.render('users/messages', {messages: messages});
   });
 };

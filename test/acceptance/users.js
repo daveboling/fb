@@ -152,7 +152,7 @@ describe('users', function(){
       .get('/messages')
       .set('cookie', cookie)
       .end(function(err, res){
-        //expect(res.status).to.equal(200);
+        expect(res.status).to.equal(200);
         done();
       });
     });

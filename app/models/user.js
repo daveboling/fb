@@ -106,7 +106,6 @@ function sendInternal(to, from, body, cb){
   });
 
   Message.collection.save(message, cb);
-
 }
 
 
